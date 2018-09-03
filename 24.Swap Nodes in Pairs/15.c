@@ -1,11 +1,9 @@
-struct ListNode
-{
+struct ListNode {
     int val;
     struct ListNode *next;
 };
 
-struct ListNode *swapPairs(struct ListNode *head)
-{
+struct ListNode *swapPairs(struct ListNode *head) {
     if (!head)
         return head;
     if (!head->next)
@@ -18,20 +16,16 @@ struct ListNode *swapPairs(struct ListNode *head)
     head->next->next = head;
     head = tmp;
 
-    while (head && head->next)
-    {
+    while (head && head->next) {
         tmp = head->next->next;
         prior_node->next = head->next;
         prior_node = head;
         head->next->next = head;
         head = tmp;
     }
-    if (head)
-    {
+    if (head) {
         prior_node->next = head;
-    }
-    else
-    {
+    } else {
         prior_node->next = NULL;
     }
     return res;
