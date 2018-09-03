@@ -10,30 +10,29 @@ struct ListNode *swapPairs(struct ListNode *head)
         return head;
     if (!head->next)
         return head;
-    struct ListNode *final_res = head->next;
 
-    struct ListNode *worker = head->next->next;
+    struct ListNode *res = head->next;
     struct ListNode *prior_node = head;
-    struct ListNode *tmp;
+    struct ListNode *tmp = head->next->next;
 
     head->next->next = head;
-    head->next = NULL;
+    head = tmp;
 
-    while (worker && worker->next)
+    while (head && head->next)
     {
-        tmp = worker->next->next;
-        prior_node->next = worker->next;
-        prior_node = worker;
-        worker->next->next = worker;
-        worker = tmp;
+        tmp = head->next->next;
+        prior_node->next = head->next;
+        prior_node = head;
+        head->next->next = head;
+        head = tmp;
     }
-    if (worker)
+    if (head)
     {
-        prior_node->next = worker;
+        prior_node->next = head;
     }
     else
     {
         prior_node->next = NULL;
     }
-    return final_res;
+    return res;
 }
