@@ -1,0 +1,6 @@
+{
+    "git.confirmSync": false,
+    "explorer.confirmDelete": false,
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: llvm, AccessModifierOffset: -4, AllowShortIfStatementsOnASingleLine: false,ColumnLimit: 0,IndentCaseLabels: false,IndentWidth: 4,SortIncludes: false,TabWidth: 4}",
+    "java.errors.incompleteClasspath.severity": "ignore"
+}
