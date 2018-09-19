@@ -4,7 +4,7 @@ struct ListNode {
 };
 
 struct ListNode *insertionSortList(struct ListNode *head) {
-    if(!head){
+    if (!head) {
         return 0;
     }
     struct ListNode *ret = head;
@@ -31,8 +31,8 @@ struct ListNode *insertionSortList(struct ListNode *head) {
         }
         if (!current->next) {
             tmp->next = current;
+            current->next = 0;
         }
-        current->next = 0;
     }
     return ret;
 }
