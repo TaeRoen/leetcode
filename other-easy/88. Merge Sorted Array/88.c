@@ -8,11 +8,11 @@ void merge(int *nums1, int m, int *nums2, int n) {
             nums1[i] = nums2[in];
             in--;
         }
-        if(in < 0){
+        if (in < 0) {
             return;
         }
-        if(im < 0){
-            for(int j = 0; j <= in; j++){
+        if (im < 0) {
+            for (int j = 0; j <= in; j++) {
                 nums1[j] = nums2[j];
             }
             return;
