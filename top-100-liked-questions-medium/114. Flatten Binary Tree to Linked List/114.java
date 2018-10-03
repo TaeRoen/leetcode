@@ -12,25 +12,29 @@ class Solution {
     public class RightNode {
         TreeNode head;
         TreeNode tail;
-        RightNode(TreeNode node){
+
+        RightNode(TreeNode node) {
             head = node;
             tail = node;
         }
-        void addRight(TreeNode node){
+
+        void addRight(TreeNode node) {
             tail.left = null;
             tail.right = node;
             tail = node;
         }
     }
-    public void traverse(TreeNode root, RightNode node){
-        if(root){
+
+    public void traverse(TreeNode root, RightNode node) {
+        if (root) {
             node.addRight(root);
             traverse(root.left, node);
             traverse(root.riht, node);
         }
     }
+
     public void flatten(TreeNode root) {
-        if(root){
+        if (root) {
             RightNode node = new RightNode(root);
             traverse(root.left, node);
             traverse(root.right, node);

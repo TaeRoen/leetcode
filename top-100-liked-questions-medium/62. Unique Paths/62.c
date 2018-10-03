@@ -1,5 +1,5 @@
 int uniquePaths(int m, int n) {
-    if(m == 1 || n == 1){
+    if (m == 1 || n == 1) {
         return 1;
     }
 
@@ -23,5 +23,5 @@ int uniquePaths(int m, int n) {
         }
     }
 
-    return grid[m-1][n-1];
+    return grid[m - 1][n - 1];
 }
