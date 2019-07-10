@@ -41,6 +41,16 @@
  * 
  */
 int climbStairs(int n) {
-    
+    // last step is 1
+    int res1 = 1;
+    // last step is 2
+    int res2 = 0;
+    int tmp = 0;
+    for (int i = 1; i < n; i++) {
+        tmp = res1;
+        res1 = res1 + res2;
+        res2 = tmp;
+    }
+    return res1+ res2;
 }
 

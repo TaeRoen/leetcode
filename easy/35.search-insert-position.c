@@ -47,6 +47,38 @@
  * 
  */
 int searchInsert(int* nums, int numsSize, int target) {
+    if(numsSize == 0){
+        return 0;
+    }
+    int start = 0;
+    int end = numsSize-1;
+    while (start < end)
+    {
+        int index = (start+end)/2;
+        if(nums[index] == target){
+            return index;
+        }
+        if(nums[index] > target){
+            end = index-1;
+        }else {
+            start = index+1;
+        }
+    }
+    if(start == end){
+        if(nums[start] < target){
+            return start + 1;
+        }else
+        {
+            return start;
+        }
+    }else{
+        if(end >= 0 && nums[end] < target){
+            return start;
+        }else {
+            return 0;
+        }
+        
+    }
     
 }
 
