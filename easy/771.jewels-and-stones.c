@@ -43,6 +43,22 @@
  * 
  */
 int numJewelsInStones(char* J, char* S) {
+    bool jewels[128];
+    for (int i = 0; i < 128; i++) {
+        jewels[i]=false;
+    }
     
+    int ret = 0;
+    while (*J!='\0'){
+        jewels[*J]=true;
+        J++;
+    }
+    while (*S!='\0'){
+        if(jewels[*S]){
+            ret++;
+        }
+        S++;
+    }
+    return ret;
 }
 
