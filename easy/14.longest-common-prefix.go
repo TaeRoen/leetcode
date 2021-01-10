@@ -3,6 +3,7 @@
  *
  * [14] Longest Common Prefix
  */
+package main
 
 // @lc code=start
 func longestCommonPrefix(strs []string) string {
@@ -35,3 +36,6 @@ func longestCommonPrefix(strs []string) string {
 
 // @lc code=end
 
+func main() {
+	longestCommonPrefix("")
+}
