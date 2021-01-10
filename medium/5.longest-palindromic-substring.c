@@ -2,35 +2,59 @@
  * @lc app=leetcode id=5 lang=c
  *
  * [5] Longest Palindromic Substring
- *
- * https://leetcode.com/problems/longest-palindromic-substring/description/
- *
- * algorithms
- * Medium (26.73%)
- * Total Accepted:    524.4K
- * Total Submissions: 1.9M
- * Testcase Example:  '"babad"'
- *
- * Given a string s, find the longest palindromic substring in s. You may
- * assume that the maximum length of s is 1000.
- * 
- * Example 1:
- * 
- * 
- * Input: "babad"
- * Output: "bab"
- * Note: "aba" is also a valid answer.
- * 
- * 
- * Example 2:
- * 
- * 
- * Input: "cbbd"
- * Output: "bb"
- * 
- * 
  */
-char* longestPalindrome(char* s) {
-    
+
+// @lc code=start
+
+int palindromeLength(char *s, int size, int a, int b) {
+    int bin = 0;
+    while (a >= 0 && b < size && s[a] == s[b]) {
+        a--;
+        b++;
+        bin++;
+    }
+    int res = b - a - 1;
+    return res;
 }
 
+char *longestPalindrome(char *s) {
+    int size = 0;
+    char *tmp = s;
+    while ((*tmp) != '\0') {
+        tmp++;
+        size++;
+    }
+    if (size == 0 || size == 1) {
+        return s;
+    }
+    if (size == 2) {
+        if (s[0] == s[1]) {
+            return s;
+        }
+    }
+
+    int max_length = 1;
+    int max_start = 0;
+    if (s[0] == s[1]) {
+        max_length = 2;
+    }
+
+    for (int i = 2; i < size; i++) {
+        int ret = palindromeLength(s, size, i - 2, i);
+        if (ret > max_length) {
+            max_length = ret;
+            max_start = i - ret / 2 - 1;
+        }
+        ret = palindromeLength(s, size, i - 1, i);
+        if (ret > max_length) {
+            max_length = ret;
+            max_start = i - ret / 2;
+        }
+    }
+    for (int i = 0; i < max_start; i++) {
+        s++;
+    }
+    s[max_length] = '\0';
+    return s;
+}
+// @lc code=end
