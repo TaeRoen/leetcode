@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode id=34 lang=java
+ *
+ * [34] Find First and Last Position of Element in Sorted Array
+ */
+
+// @lc code=start
 class Solution {
     private int findStart(int[] nums, int target, int start, int end) {
         while (end >= 0 && nums[end] == target) {
@@ -47,3 +54,4 @@ class Solution {
         return ret;
     }
 }
+// @lc code=end
