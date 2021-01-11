@@ -3,6 +3,13 @@
  *
  * [328] Odd Even Linked List
  */
+
+#include "stdlib.h"
+struct ListNode {
+    int val;
+    struct ListNode *next;
+};
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -11,27 +18,26 @@
  * };
  */
 
-
-struct ListNode* oddEvenList(struct ListNode* head) {
-    struct ListNode* odd,*oddTail;
-    struct ListNode* even,*evenTail;
-    if(!head){
+struct ListNode *oddEvenList(struct ListNode *head) {
+    struct ListNode *odd, *oddTail;
+    struct ListNode *even, *evenTail;
+    if (!head) {
         return NULL;
     }
     odd = head;
     oddTail = odd;
-    if(!head->next){
+    if (!head->next) {
         return head;
     }
     even = head->next;
     evenTail = even;
     head = head->next->next;
     bool isOdd = true;
-    while(head){
-        if(isOdd){
+    while (head) {
+        if (isOdd) {
             oddTail->next = head;
             oddTail = oddTail->next;
-        }else{
+        } else {
             evenTail->next = head;
             evenTail = evenTail->next;
         }
@@ -42,6 +48,4 @@ struct ListNode* oddEvenList(struct ListNode* head) {
     evenTail->next = NULL;
     return odd;
 }
-
-
-
+// @lc code=end
