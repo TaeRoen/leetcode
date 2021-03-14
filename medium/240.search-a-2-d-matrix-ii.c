@@ -3,6 +3,9 @@
  *
  * [240] Search a 2D Matrix II
  */
+
+#include "stdbool.h"
+// @lc code=start
 bool searchMatrix0(int **matrix, int startRow, int endRow, int startCol, int endCol, int target) {
     if (startRow > endRow || startCol > endCol) {
         return false;
@@ -26,6 +29,7 @@ bool searchMatrix0(int **matrix, int startRow, int endRow, int startCol, int end
     }
 }
 
-bool searchMatrix(int** matrix, int matrixRowSize, int matrixColSize, int target) {
-    return searchMatrix0(matrix,0,matrixRowSize-1,0,matrixColSize-1,target);
+bool searchMatrix(int **matrix, int matrixRowSize, int matrixColSize, int target) {
+    return searchMatrix0(matrix, 0, matrixRowSize - 1, 0, matrixColSize - 1, target);
 }
+// @lc code=end

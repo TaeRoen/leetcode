@@ -4,7 +4,9 @@
  * [328] Odd Even Linked List
  */
 
-#include "stdlib.h"
+#include "stdbool.h"
+#include "stdio.h"
+
 struct ListNode {
     int val;
     struct ListNode *next;
